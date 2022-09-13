@@ -13,7 +13,7 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar />
-        <div style={{ width: "1200px", margin: "0 auto", padding: "8px" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "8px" }}>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/cart" element={<CartPage />} />

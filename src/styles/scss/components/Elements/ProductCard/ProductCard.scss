@@ -1,0 +1,47 @@
+.productCard {
+  cursor: pointer;
+  border: 1px solid red;
+  width: 290px;
+  height: 320px;
+  padding: 5px;
+
+  .productCard_container {
+    .product_image {
+      margin-bottom: 15px;
+      // img {
+      //   max-width: 100%;
+      //   height: auto;
+      // }
+    }
+    .product_desc {
+      > p {
+        margin: 0;
+      }
+      .product_desc_row1 {
+        .product_title {
+          font-size: 18px;
+          font-weight: bold;
+          margin-right: 10px;
+        }
+      }
+
+      .product_desc_row2 {
+        font-size: 13px;
+        .product_discountPercentage {
+          margin-right: 10px;
+        }
+        .product_originalPrice {
+          text-decoration: line-through;
+        }
+      }
+
+      .product_desc_row3 {
+        font-size: 16px;
+
+        .product_discountedPrice {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
