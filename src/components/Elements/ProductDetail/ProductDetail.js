@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { Col, Row, Carousel } from "antd";
-import { StarTwoTone } from "@ant-design/icons";
+import { Col, Row, Carousel, Button, InputNumber } from "antd";
+import { StarTwoTone, PlusSquareOutlined, MinusSquareOutlined } from "@ant-design/icons";
 
 const ProductDetail = () => {
   let params = useParams();
@@ -18,37 +18,46 @@ const ProductDetail = () => {
   useEffect(() => {
     axios.get(`https://dummyjson.com/products/${params.productId}`).then((response) => {
       setProduct(response.data);
-      console.log(response.data);
     });
   }, []);
 
+  if (!product) return <h1>상품정보가져오는중,,,,,,,,,,,,,,,,,,,,,,,</h1>;
   return (
     <div className="productDetail">
-      {product ? (
-        <div className="productDetail_container">
-          <Carousel autoplay>
-            {product.images.map((image) => (
-              <div>
-                <img src={image} alt="product thumbnail" />
-              </div>
-            ))}
-          </Carousel>
-
-          <div>제조사 : {product.brand}</div>
-          <div>상품명 : {product.title}</div>
-          <div>설명 : {product.description}</div>
-          <div>할인 전 가격 : {getOriginalPriceKR(product.price)}</div>
-          <div>할인율 : {product.discountPercentage}%</div>
-          <div>할인 후 가격 : {getDiscountedPriceKR(product.price, product.discountPercentage)}</div>
-          <div>
-            평점 : <StarTwoTone />
-            {product.rating}
-          </div>
-          <div>재고 : {product.stock} 개</div>
+      <div className="productDetail_container">
+        <div className="productDetail_section1">
+          {/* <Carousel autoplay>
+              {product.images.map((image) => (
+                <div>
+                  <img src={image} alt="product thumbnail" />
+                </div>
+              ))}
+            </Carousel> */}
+          <img src={product.images[0]} alt="product thumbnail" />
         </div>
-      ) : (
-        <h1>Loading</h1>
-      )}
+
+        <div className="productDetail_section2">
+          <p className="productDetail_brand">{product.brand}</p>
+          <p className="productDetail_title">{product.title}</p>
+          <p className="productDetail_desc">{product.description}</p>
+          <p className="productDetail_originalPrice">
+            <span className="productDetail_originalPrice_percentage">{product.discountPercentage}%</span>
+            <span className="productDetail_originalPrice_price">{getOriginalPriceKR(product.price)}원</span>
+          </p>
+          <p className="productDetail_discountedPrice">
+            {getDiscountedPriceKR(product.price, product.discountPercentage)} 원
+          </p>
+          <p className="productDetail_ratio">
+            <StarTwoTone /> &nbsp;
+            {product.rating}
+          </p>
+          <div className="productDetail_buttons">
+            <InputNumber min={1} max={10} defaultValue={1} />
+            <Button type="primary">구매하기</Button>
+            <Button>장바구니</Button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

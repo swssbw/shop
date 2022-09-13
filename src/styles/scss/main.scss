@@ -9,6 +9,7 @@
 
 // pages
 @import "./Pages/LoginPage.scss";
+@import "./Pages/LandingPage.scss";
 
 @font-face {
   font-family: "Pretendard-Regular";
@@ -35,4 +36,8 @@ a {
 }
 
 a:active {
+}
+
+p {
+  margin: 0 !important;
 }

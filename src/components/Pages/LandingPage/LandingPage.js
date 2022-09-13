@@ -1,36 +1,32 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Col, Row, Carousel } from "antd";
-
+import queryString from "query-string";
+import { useLocation } from "react-router-dom";
 import ProductCard from "../../Elements/ProductCard/ProductCard";
 
 const LandingPage = () => {
+  const { search } = useLocation();
+  const { category } = queryString.parse(search);
   const [products, setProducts] = useState([]);
 
   const getProducts = () => {
     axios.get("https://dummyjson.com/products").then((response) => {
-      console.log(response.data);
       setProducts(response.data.products);
     });
   };
 
   useEffect(() => {
-    getProducts();
-  }, []);
+    if (category) {
+      axios.get(`https://dummyjson.com/products/category/${category}`).then((response) => {
+        setProducts(response.data.products);
+      });
+    } else getProducts();
+  }, [category]);
 
-  const renderProducts = products.map((product) => {
-    return (
-      <Col lg={6} md={12} xs={24} key={product.id}>
-        <ProductCard product={product} />
-      </Col>
-    );
-  });
-
+  if (products.length === 0) return <h1>상품목록 불러오는중</h1>;
   return (
     <div className="landingPage">
       <div className="landingPage_container">
-        {/* <Row gutter={[16, 16]}>{renderProducts}</Row> */}
-        {/* <Row>{renderProducts}</Row> */}
         {products.map((product) => {
           return <ProductCard product={product} />;
         })}

@@ -1,6 +1,7 @@
 .productCard {
   cursor: pointer;
-  border: 1px solid red;
+  border: 1px solid $gray300;
+  border-radius: 8px;
   width: 290px;
   height: 320px;
   padding: 5px;

@@ -1,9 +1,13 @@
 import React from "react";
 import { Input } from "antd";
+import axios from "axios";
 
 const SearchRow = () => {
-  const onSearch = () => {
-    console.log("검색버튼 클릭");
+  const onSearch = (value) => {
+    console.log(value);
+    // axios.get(`https://dummyjson.com/products/search?q=${value}`).then((response) => {
+
+    // });
   };
 
   return (

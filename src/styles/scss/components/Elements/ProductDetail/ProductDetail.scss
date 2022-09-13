@@ -1,5 +1,49 @@
 .productDetail {
+  padding: 16px 0;
   .productDetail_container {
-    border: 1px solid red;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .productDetail_section1 {
+      display: flex;
+      justify-content: center;
+    }
+
+    .productDetail_section2 {
+      .productDetail_brand {
+        color: $gray500;
+      }
+      .productDetail_title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .productDetail_desc {
+        color: $gray800;
+        font-size: 16px;
+      }
+
+      .productDetail_originalPrice {
+        font-size: 14px;
+        .productDetail_originalPrice_percentage {
+          margin-right: 10px;
+          font-weight: bold;
+          color: $mint600;
+        }
+
+        .productDetail_originalPrice_price {
+          text-decoration: line-through;
+        }
+      }
+
+      .productDetail_discountedPrice {
+        font-size: 22px;
+        font-weight: bold;
+      }
+
+      .productDetail_ratio {
+        margin-bottom: 20px !important;
+      }
+    }
   }
 }

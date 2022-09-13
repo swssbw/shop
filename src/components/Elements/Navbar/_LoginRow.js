@@ -6,7 +6,7 @@ const LoginRow = () => {
   return (
     <div className="loginRow">
       <div className="loginRow_container">
-        <Button type="link" size="small">
+        <Button type="text" size="small">
           <Link to="/login">로그인</Link>
         </Button>
         <Button type="text" size="small">
