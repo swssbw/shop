@@ -7,7 +7,7 @@ const TotalProducts = () => {
     <div className="totalProductRow">
       <div className="totalProductRow_container">
         <Button type="text" size="small">
-          <Link to="/">전체상품보기</Link>
+          <Link to="/products">전체상품보기</Link>
         </Button>
       </div>
     </div>

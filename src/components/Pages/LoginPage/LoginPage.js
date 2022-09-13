@@ -7,7 +7,7 @@ const LoginPage = () => {
 
   const onFinish = (values) => {
     console.log("Success:", values);
-    navigate("/");
+    navigate("/products");
   };
 
   const onFinishFailed = (errorInfo) => {

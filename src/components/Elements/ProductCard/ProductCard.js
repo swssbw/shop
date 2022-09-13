@@ -1,9 +1,14 @@
 import React from "react";
 import { StarTwoTone } from "@ant-design/icons";
-import { Col, Row, Carousel } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = (props) => {
   const { product } = props;
+  let navigate = useNavigate();
+
+  const onCardClick = (productID) => {
+    navigate(`${productID}`);
+  };
 
   const getOriginalPriceKR = (price) => {
     return (Math.ceil((price * 1300) / 1000) * 1000).toLocaleString();
@@ -15,7 +20,7 @@ const ProductCard = (props) => {
 
   return (
     <div className="productCard">
-      <div className="productCard_container">
+      <div className="productCard_container" onClick={() => onCardClick(product.id)}>
         {/* 상품 썸네일*/}
         <div className="product_image">
           <img alt="product image" src={product.thumbnail} width="280px" height="180px" />
