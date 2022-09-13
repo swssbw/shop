@@ -1,0 +1,13 @@
+.loginRow {
+  border-bottom: 1px solid #eee;
+  height: 30px;
+  display: flex;
+  align-items: center;
+
+  .loginRow_container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: $container_width;
+  }
+}
