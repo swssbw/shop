@@ -1,10 +1,13 @@
 @import "./variable.scss";
 
+// components
 @import "./components/Elements/Navbar/LoginRow";
 @import "./components/Elements/Navbar/SearchRow";
 @import "./components/Elements/Navbar/TotalProductsRow";
-
 @import "./components/Elements/ProductCard/ProductCard.scss";
+
+// pages
+@import "./Pages/LoginPage.scss";
 
 @font-face {
   font-family: "Pretendard-Regular";
