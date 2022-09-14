@@ -11,24 +11,26 @@ import ProductDetail from "./components/Elements/ProductDetail/ProductDetail";
 import SearchPage from "./components/Pages/SearchPage/SearchPage";
 function App() {
   return (
-    <>
+    <div id="app">
       <BrowserRouter>
-        <Navbar />
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "8px" }}>
-          <Routes>
-            <Route path="/" element={<Navigate to="/products" />} />
-            <Route path="/products" element={<LandingPage />} />
-            <Route path="/products/:productId" element={<ProductDetail />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/search/:productId" element={<ProductDetail />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/mypage" element={<MyPage />} />
-          </Routes>
+        <div id="main">
+          <Navbar />
+          <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "8px" }}>
+            <Routes>
+              <Route path="/" element={<Navigate to="/products" />} />
+              <Route path="/products" element={<LandingPage />} />
+              <Route path="/products/:productId" element={<ProductDetail />} />
+              <Route path="/search" element={<SearchPage />} />
+              <Route path="/search/:productId" element={<ProductDetail />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/mypage" element={<MyPage />} />
+            </Routes>
+          </div>
         </div>
+        <Footer />
       </BrowserRouter>
-      {/* <Footer /> */}
-    </>
+    </div>
   );
 }
 

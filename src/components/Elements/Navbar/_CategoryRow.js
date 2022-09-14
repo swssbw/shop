@@ -17,7 +17,6 @@ const TotalProducts = () => {
   }, []);
 
   useEffect(() => {
-    console.log("선택된 카테고리", category);
     setSelectedCategory(category);
   }, [category]);
 
@@ -28,7 +27,7 @@ const TotalProducts = () => {
           <Link to="/products">전체상품보기</Link>
         </Button>
 
-        {categories.slice(0, 8).map((category) => (
+        {categories.map((category) => (
           <Button type="text" size="small" className={selectedCategory === category ? "active" : ""}>
             <Link to={`/products?category=${category}`}>{category}</Link>
           </Button>

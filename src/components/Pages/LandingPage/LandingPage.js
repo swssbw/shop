@@ -11,7 +11,8 @@ const LandingPage = () => {
   const [products, setProducts] = useState([]);
 
   const getProducts = () => {
-    axios.get("https://dummyjson.com/products").then((response) => {
+    // axios.get("https://dummyjson.com/products").then((response) => {
+    axios.get("https://dummyjson.com/products?limit=20&skip=0").then((response) => {
       setProducts(response.data.products);
     });
   };

@@ -2,6 +2,26 @@
   .productDetail_container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    // grid-column-gap: 10px;
+
+    @include undermobile {
+      grid-template-columns: 1fr;
+      grid-row-gap: 10px;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      grid-row-gap: 10px;
+    }
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      grid-row-gap: 10px;
+    }
+
+    @include desktop {
+      grid-column-gap: 10px;
+    }
 
     .productDetail_section1 {
       display: flex;
@@ -9,6 +29,8 @@
     }
 
     .productDetail_section2 {
+      width: 80%;
+      margin: 0 auto;
       .productDetail_brand {
         color: $gray500;
       }

@@ -2,17 +2,17 @@
   cursor: pointer;
   border: 1px solid $gray300;
   border-radius: 8px;
-  width: 290px;
-  height: 350px;
   padding: 5px;
 
   .productCard_container {
     .product_image {
       margin-bottom: 15px;
-      // img {
-      //   max-width: 100%;
-      //   height: auto;
-      // }
+      display: flex;
+      justify-content: center;
+      img {
+        max-width: 100%;
+        // height: auto;
+      }
     }
     .product_desc {
       > p {

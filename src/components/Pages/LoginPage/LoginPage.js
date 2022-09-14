@@ -2,12 +2,19 @@ import React from "react";
 import { Button, Form, Input } from "antd";
 import { useNavigate } from "react-router-dom";
 
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout } from "../../../features/users/userSlice";
+
 const LoginPage = () => {
   let navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onFinish = (values) => {
-    console.log("Success:", values);
-    navigate("/products");
+    if (values.username !== "user1" || values.password !== "1234") alert("아이디, 비밀번호를 확인해주세요");
+    else {
+      dispatch(login());
+      navigate("/products");
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -17,7 +24,16 @@ const LoginPage = () => {
   return (
     <div className="LoginPage">
       <div className="LoginPage_container">
-        <Form name="basic" onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
+        <Form
+          name="basic"
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
+          initialValues={{
+            username: "user1",
+            password: "1234",
+          }}
+        >
           <Form.Item
             label="Username"
             name="username"

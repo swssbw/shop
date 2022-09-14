@@ -1,6 +1,7 @@
 @import "./variable.scss";
 
 // components
+@import "./components/Elements/Footer/Footer.scss";
 @import "./components/Elements/Navbar/LoginRow";
 @import "./components/Elements/Navbar/SearchRow";
 @import "./components/Elements/Navbar/TotalProductsRow";
@@ -40,4 +41,18 @@ a {
 
 p {
   margin: 0 !important;
+}
+
+// #app {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100vh;
+//   padding-bottom: 100px;
+// }
+
+#main {
+  // flex: 1;
+  height: auto;
+  min-height: calc(100vh - 100px);
+  // padding-top: 100px;
 }

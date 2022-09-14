@@ -10,7 +10,6 @@ const MyPage = () => {
 
   useEffect(() => {
     axios.get("https://dummyjson.com/users/5/carts").then((response) => {
-      console.log(response.data.carts[0]);
       setHistory(response.data.carts[0]);
     });
   }, []);
