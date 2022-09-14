@@ -1,5 +1,4 @@
 .productDetail {
-  padding: 16px 0;
   .productDetail_container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -14,17 +13,16 @@
         color: $gray500;
       }
       .productDetail_title {
-        font-size: 20px;
+        font-size: $h2;
         font-weight: bold;
       }
 
       .productDetail_desc {
         color: $gray800;
-        font-size: 16px;
+        font-size: $t1;
       }
 
       .productDetail_originalPrice {
-        font-size: 14px;
         .productDetail_originalPrice_percentage {
           margin-right: 10px;
           font-weight: bold;
@@ -37,7 +35,7 @@
       }
 
       .productDetail_discountedPrice {
-        font-size: 22px;
+        font-size: $h3;
         font-weight: bold;
       }
 

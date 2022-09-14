@@ -1,14 +1,14 @@
 import React from "react";
 import LoginRow from "./_LoginRow";
 import SearchRow from "./_SearchRow";
-import TotalProductsRow from "./_TotalProductsRow";
+import CategoryRow from "./_CategoryRow";
 
 const Navbar = () => {
   return (
     <>
       <LoginRow />
       <SearchRow />
-      <TotalProductsRow />
+      <CategoryRow />
     </>
   );
 };

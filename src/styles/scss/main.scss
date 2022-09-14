@@ -10,6 +10,7 @@
 // pages
 @import "./Pages/LoginPage.scss";
 @import "./Pages/LandingPage.scss";
+@import "./Pages/SearchPage.scss";
 
 @font-face {
   font-family: "Pretendard-Regular";
@@ -23,6 +24,7 @@
   font-family: Pretendard-Regular;
   margin: 0;
   padding: 0;
+  font-size: 14px;
 }
 
 body {
@@ -33,9 +35,6 @@ body {
 a {
   all: unset;
   cursor: pointer;
-}
-
-a:active {
 }
 
 p {

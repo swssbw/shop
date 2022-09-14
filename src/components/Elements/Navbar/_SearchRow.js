@@ -1,19 +1,19 @@
 import React from "react";
 import { Input } from "antd";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SearchRow = () => {
-  const onSearch = (value) => {
-    console.log(value);
-    // axios.get(`https://dummyjson.com/products/search?q=${value}`).then((response) => {
+  let navigate = useNavigate();
 
-    // });
+  const onSearch = (value) => {
+    if (!value) alert("검색어를 입력해주세요");
+    else navigate(`search?sword=${value}`);
   };
 
   return (
     <div className="searchRow">
       <div className="searchRow_container">
-        <Input.Search placeholder="검색어를 입력해 주세요" allowClear enterButton onSearch={onSearch} />
+        <Input.Search placeholder="검색어를 입력해 주세요" enterButton onSearch={onSearch} />
       </div>
     </div>
   );

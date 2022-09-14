@@ -3,7 +3,7 @@
   border: 1px solid $gray300;
   border-radius: 8px;
   width: 290px;
-  height: 320px;
+  height: 350px;
   padding: 5px;
 
   .productCard_container {
@@ -20,14 +20,15 @@
       }
       .product_desc_row1 {
         .product_title {
-          font-size: 18px;
+          font-size: $h3;
           font-weight: bold;
           margin-right: 10px;
+          letter-spacing: -1px;
         }
       }
 
       .product_desc_row2 {
-        font-size: 13px;
+        font-size: $t1;
         .product_discountPercentage {
           margin-right: 10px;
         }
@@ -37,7 +38,7 @@
       }
 
       .product_desc_row3 {
-        font-size: 16px;
+        font-size: $t1;
 
         .product_discountedPrice {
           font-weight: bold;

@@ -1,0 +1,14 @@
+.searchPage {
+  .searchPage_container {
+    .searchPage_row1 {
+      font-size: $h1;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .searchPage_row2 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
