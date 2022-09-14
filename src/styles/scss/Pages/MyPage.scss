@@ -1,0 +1,84 @@
+.myPage {
+  .myPage_container {
+    .myPage_row1 {
+      margin-bottom: 64px;
+
+      .myPage_row1_title {
+        font-size: $h2;
+        font-weight: bold;
+      }
+      .myPage_info {
+        > span {
+          font-size: $t1;
+        }
+        .title {
+          color: $gray700;
+          margin-right: 16px;
+        }
+        .content {
+          // font-weight: bold;
+        }
+      }
+    }
+
+    .myPage_row2 {
+      .myPage_row2_title {
+        font-size: $h2;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.history {
+  .history_container {
+    border: 1px solid $gray300;
+    border-radius: 8px;
+    padding: 16px;
+
+    .history_info {
+      > span {
+        font-size: $t1;
+      }
+      .title {
+        color: $gray700;
+        margin-right: 16px;
+      }
+    }
+
+    .history_item_container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+
+      .history_item_section1 {
+        border-right: 1px solid $gray300;
+
+        .history_item {
+          .title {
+            font-weight: bold;
+            margin-right: 10px;
+          }
+          .price {
+            margin-right: 10px;
+          }
+          .quantity {
+            font-size: $c1;
+          }
+        }
+      }
+
+      .history_item_section2 {
+        padding: 0 16px;
+        .total_title {
+          font-size: $h3;
+          display: block;
+        }
+
+        .total_price {
+          font-size: $h2;
+          color: $mint600;
+        }
+      }
+    }
+  }
+}
