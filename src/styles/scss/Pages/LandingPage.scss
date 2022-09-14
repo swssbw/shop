@@ -6,3 +6,15 @@
     row-gap: 8px;
   }
 }
+
+.landingPageLoader {
+  .landingPageLoader_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 32px;
+    > span {
+      font-size: $h3;
+    }
+  }
+}

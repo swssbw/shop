@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Col, Row, Carousel, Button, InputNumber } from "antd";
 import { StarTwoTone, PlusSquareOutlined, MinusSquareOutlined } from "@ant-design/icons";
+import ProductDetailLoading from "./ProductDetailLoading";
 
 const ProductDetail = () => {
   let params = useParams();
@@ -21,7 +22,7 @@ const ProductDetail = () => {
     });
   }, []);
 
-  if (!product) return <h1>상품정보가져오는중,,,,,,,,,,,,,,,,,,,,,,,</h1>;
+  if (!product) return <ProductDetailLoading />;
   return (
     <div className="productDetail">
       <div className="productDetail_container">

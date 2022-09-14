@@ -3,6 +3,7 @@ import axios from "axios";
 import queryString from "query-string";
 import { useLocation } from "react-router-dom";
 import ProductCard from "../../Elements/ProductCard/ProductCard";
+import { Spin } from "antd";
 
 const LandingPage = () => {
   const { search } = useLocation();
@@ -23,7 +24,15 @@ const LandingPage = () => {
     } else getProducts();
   }, [category]);
 
-  if (products.length === 0) return <h1>상품목록 불러오는중</h1>;
+  if (products.length === 0)
+    return (
+      <div className="landingPageLoader">
+        <div className="landingPageLoader_container">
+          <span>상품목록 불러오는중... </span>
+          <Spin />
+        </div>
+      </div>
+    );
   return (
     <div className="landingPage">
       <div className="landingPage_container">

@@ -45,3 +45,24 @@
     }
   }
 }
+
+.productDetailLoading {
+  .productDetail_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .productDetail_section1 {
+      display: flex;
+      justify-content: center;
+
+      .productDetail_loader_img {
+        width: 350px;
+        height: 400px;
+      }
+    }
+
+    // .productDetail_section2 {
+
+    // }
+  }
+}
