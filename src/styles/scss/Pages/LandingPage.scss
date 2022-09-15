@@ -33,3 +33,14 @@
     }
   }
 }
+
+.landingPage_bottom {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 80px 0;
+
+  .productsList_end {
+    font-size: $h2;
+  }
+}
