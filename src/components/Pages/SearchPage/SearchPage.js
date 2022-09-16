@@ -22,7 +22,9 @@ const SearchPage = () => {
   return (
     <div className="searchPage">
       <div className="searchPage_container">
-        <div className="searchPage_row1">{sword}에 대한 검색결과</div>
+        <div className="searchPage_row1">
+          <span id="sword">{sword}</span> 에 대한 검색결과
+        </div>
         <div className="searchPage_row2">
           {searchResult.map((result) => (
             <ProductCard product={result} />

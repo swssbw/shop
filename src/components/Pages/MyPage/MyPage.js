@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import InnerLoader from "../../Elements/InnerLoader/InnerLoader";
 
 const MyPage = () => {
   const [history, setHistory] = useState();
@@ -14,7 +15,7 @@ const MyPage = () => {
     });
   }, []);
 
-  if (!history) return <h1>내정보 로딩중,,</h1>;
+  if (!history) return <InnerLoader text="내 정보를 가져오는중..." />;
   return (
     <div className="myPage">
       <div className="myPage_container">
