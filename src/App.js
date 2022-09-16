@@ -18,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/products" />} />
             <Route path="/products" element={<LandingPage />} />
+            <Route path="/main" element={<h1>gg</h1>} />
             <Route path="/products/:productId" element={<ProductDetail />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/search/:productId" element={<ProductDetail />} />

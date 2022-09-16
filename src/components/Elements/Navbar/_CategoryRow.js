@@ -28,7 +28,7 @@ const TotalProducts = () => {
         </Button>
 
         {categories.map((category) => (
-          <Button type="text" size="small" className={selectedCategory === category ? "active" : ""}>
+          <Button type="text" size="small" className={selectedCategory === category ? "active" : ""} key={category}>
             <Link to={`/products?category=${category}`}>{category}</Link>
           </Button>
         ))}

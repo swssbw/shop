@@ -1,24 +1,26 @@
 import React, { useEffect, useState, useRef } from "react";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 import queryString from "query-string";
 import { useLocation } from "react-router-dom";
-import ProductCard from "../../Elements/ProductCard/ProductCard";
 import { Spin } from "antd";
 
+import { getProducts, getProductsByCategory, getProductsByScroll } from "../../../features/products/productsSlice";
+import ProductCard from "../../Elements/ProductCard/ProductCard";
+
 const LandingPage = () => {
+  const dispatch = useDispatch();
   const { search } = useLocation();
   const { category } = queryString.parse(search);
-
-  const [products, setProducts] = useState([]);
   const [target, setTarget] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [skip, setSkip] = useState(0);
+
+  const productsList = useSelector((state) => state.products.productsList);
+  const isLoading = useSelector((state) => state.products.isLoading);
 
   const observer = useRef(
     new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          console.log("intersection,", skip);
           setSkip((prev) => prev + 20);
         }
       },
@@ -26,42 +28,35 @@ const LandingPage = () => {
     )
   );
 
-  // 무한 스크롤
   useEffect(() => {
     const currentObserver = observer.current;
     if (target) {
       currentObserver.observe(target);
+
+      if (category) {
+        currentObserver.unobserve(target);
+      }
     }
+
     return () => {
       if (target) {
         currentObserver.unobserve(target);
       }
     };
-  }, [target]);
+  }, [target, category]);
 
+  // 스크롤 바닥 감지시 상품 로딩
   useEffect(() => {
-    if (skip < 100) getProducts();
-    console.log(skip);
-  }, [skip]);
-
-  const getProducts = async () => {
-    setIsLoading(true);
-    await axios.get(`https://dummyjson.com/products?limit=20&skip=${skip}`).then((response) => {
-      setProducts((prev) => [...prev, ...response.data.products]);
-    });
-    setIsLoading(false);
-  };
+    if (skip < 100) dispatch(getProductsByScroll(skip));
+  }, [skip, dispatch]);
 
   // 카테고리별 상품 로딩
   useEffect(() => {
-    if (category) {
-      axios.get(`https://dummyjson.com/products/category/${category}`).then((response) => {
-        setProducts(response.data.products);
-      });
-    } else getProducts();
-  }, [category]);
+    if (category) dispatch(getProductsByCategory(category));
+    else dispatch(getProducts());
+  }, [category, dispatch]);
 
-  if (products.length === 0)
+  if (productsList.length === 0)
     return (
       <div className="landingPageLoader">
         <div className="landingPageLoader_container">
@@ -70,17 +65,17 @@ const LandingPage = () => {
         </div>
       </div>
     );
+
   return (
     <div className="landingPage">
       <div className="landingPage_container">
-        {products.map((product) => {
-          return <ProductCard product={product} />;
+        {productsList.map((product, index) => {
+          return <ProductCard product={product} key={index} />;
         })}
       </div>
       <div className="landingPage_bottom">
         {isLoading && <Spin size="large" />}
-        {!isLoading && <div ref={setTarget} />}
-        {skip >= 100 && <span className="productsList_end">상품 목록 끝</span>}
+        {skip < 100 && <div ref={setTarget} />}
       </div>
     </div>
   );
