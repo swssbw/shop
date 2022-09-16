@@ -1,18 +1,27 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import InnerLoader from "../../Elements/InnerLoader/InnerLoader";
 
 const MyPage = () => {
   const [history, setHistory] = useState();
+  let navigate = useNavigate();
+
+  const isLogin = useSelector((state) => state.user.isLogin);
 
   const getOriginalPriceKR = (price) => {
     return (Math.ceil((price * 1300) / 1000) * 1000).toLocaleString();
   };
 
   useEffect(() => {
-    axios.get("https://dummyjson.com/users/5/carts").then((response) => {
-      setHistory(response.data.carts[0]);
-    });
+    if (isLogin) {
+      axios.get("https://dummyjson.com/users/5/carts").then((response) => {
+        setHistory(response.data.carts[0]);
+      });
+    } else {
+      navigate("/login");
+    }
   }, []);
 
   if (!history) return <InnerLoader text="내 정보를 가져오는중..." />;
