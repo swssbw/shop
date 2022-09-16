@@ -22,18 +22,6 @@
   }
 }
 
-.landingPageLoader {
-  .landingPageLoader_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 32px;
-    > span {
-      font-size: $h3;
-    }
-  }
-}
-
 .landingPage_bottom {
   width: 200px;
   margin: 0 auto;

@@ -1,0 +1,11 @@
+.innerLoader {
+  .innerLoader_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 32px;
+    > span {
+      font-size: $h3;
+    }
+  }
+}

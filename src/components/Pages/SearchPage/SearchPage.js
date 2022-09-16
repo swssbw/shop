@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import queryString from "query-string";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import ProductCard from "../../Elements/ProductCard/ProductCard";
+import InnerLoader from "../../Elements/InnerLoader/InnerLoader";
 import axios from "axios";
 
 const SearchPage = () => {
@@ -10,10 +11,13 @@ const SearchPage = () => {
   const [searchResult, setSearchResult] = useState([]);
 
   useEffect(() => {
+    setSearchResult([]);
     axios.get(`https://dummyjson.com/products/search?q=${sword}`).then((response) => {
       setSearchResult(response.data.products);
     });
   }, [sword]);
+
+  if (searchResult.length === 0) return <InnerLoader text="검색결과를 가져오는중... " />;
 
   return (
     <div className="searchPage">

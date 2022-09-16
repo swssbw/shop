@@ -6,6 +6,7 @@ import { Spin } from "antd";
 
 import { getProducts, getProductsByCategory, getProductsByScroll } from "../../../features/products/productsSlice";
 import ProductCard from "../../Elements/ProductCard/ProductCard";
+import InnerLoader from "../../Elements/InnerLoader/InnerLoader";
 
 const LandingPage = () => {
   const dispatch = useDispatch();
@@ -56,15 +57,7 @@ const LandingPage = () => {
     else dispatch(getProducts());
   }, [category, dispatch]);
 
-  if (productsList.length === 0)
-    return (
-      <div className="landingPageLoader">
-        <div className="landingPageLoader_container">
-          <span>상품목록 불러오는중... </span>
-          <Spin />
-        </div>
-      </div>
-    );
+  if (productsList.length === 0) return <InnerLoader text="상품목록을 가져오는중..." />;
 
   return (
     <div className="landingPage">
