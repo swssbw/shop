@@ -5,14 +5,16 @@ import storage from "redux-persist/lib/storage";
 import logger from "redux-logger";
 import userSlice from "./users/userSlice";
 import productsSlice from "./products/productsSlice";
+import cartSlice from "./cart/cartSlice";
 
 const rootReducer = combineReducers({
   user: userSlice,
   products: productsSlice,
+  cart: cartSlice,
 });
 
 const persistConfig = {
-  key: "root",
+  key: "sampleshop",
   storage,
   blacklist: ["products"],
 };

@@ -12,8 +12,10 @@ const LoginRow = () => {
 
   const onLogout = () => {
     dispatch(logout());
+    localStorage.removeItem("persist:sampleshop");
     navigate("/products");
   };
+
   return (
     <div className="loginRow">
       <div className="loginRow_container">

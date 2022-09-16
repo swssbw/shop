@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { Col, Row, Carousel, Button, InputNumber } from "antd";
-import { StarTwoTone, PlusSquareOutlined, MinusSquareOutlined } from "@ant-design/icons";
+import { Button, InputNumber } from "antd";
+import { StarTwoTone } from "@ant-design/icons";
 import ProductDetailLoading from "./ProductDetailLoading";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../features/cart/cartSlice";
 
 const ProductDetail = () => {
   let params = useParams();
+  const dispatch = useDispatch();
   const [product, setProduct] = useState();
+  const [count, setCount] = useState(1);
+
   const getOriginalPriceKR = (price) => {
     return (Math.ceil((price * 1300) / 1000) * 1000).toLocaleString();
   };
@@ -15,6 +20,13 @@ const ProductDetail = () => {
   const getDiscountedPriceKR = (price, discountPercentage) => {
     return ((Math.ceil((price * 1300) / 1000) * 1000 * (100 - Math.floor(discountPercentage))) / 100).toLocaleString();
   };
+
+  const onClickCart = () => {
+    dispatch(addToCart({ product, count }));
+    // alert("장바구니에 추가되었습니다.");
+  };
+
+  const onCounterClick = (value) => setCount(value);
 
   useEffect(() => {
     axios.get(`https://dummyjson.com/products/${params.productId}`).then((response) => {
@@ -27,13 +39,6 @@ const ProductDetail = () => {
     <div className="productDetail">
       <div className="productDetail_container">
         <div className="productDetail_section1">
-          {/* <Carousel autoplay>
-              {product.images.map((image) => (
-                <div>
-                  <img src={image} alt="product thumbnail" />
-                </div>
-              ))}
-            </Carousel> */}
           <img src={product.images[0]} alt="product thumbnail" />
         </div>
 
@@ -53,9 +58,10 @@ const ProductDetail = () => {
             {product.rating}
           </p>
           <div className="productDetail_buttons">
-            <InputNumber min={1} max={10} defaultValue={1} />
-            <Button type="primary">구매하기</Button>
-            <Button>장바구니</Button>
+            <InputNumber min={1} max={10} value={count} onChange={onCounterClick} />
+            <Button type="primary" onClick={() => onClickCart(product)}>
+              장바구니에 추가하기
+            </Button>
           </div>
         </div>
       </div>
