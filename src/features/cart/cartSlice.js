@@ -11,20 +11,12 @@ const cartSlice = createSlice({
       };
 
       const isDuplicate = state.cartItemList.findIndex((element) => element.product.id === action.payload.product.id);
-
-      if (isDuplicate === -1) {
-        // 장바구니에 존재하지 않는 상품 추가시 해당 상품 추가
-        state.cartItemList = [...state.cartItemList, cartItem];
-      } else {
-        // 장바구니에 존재하는 상품 추가시 해당 상품의 수량 증가
-        state.cartItemList[isDuplicate].count += action.payload.count;
-      }
-      // console.log("action.payload.product", action.payload.product);
-      // console.log(state.cartItemList.findIndex((element) => element.product.id === action.payload.product.id));
+      if (isDuplicate === -1) state.cartItemList = [...state.cartItemList, cartItem];
+      else state.cartItemList[isDuplicate].count += action.payload.count;
     },
     removeFromCart: (state, action) => {
       // 카트에서 제거하는 로직
-      // state.cart =
+      state.cartItemList = state.cartItemList.filter((item) => item.product.id !== action.payload);
     },
 
     removeAll: (state, action) => {
