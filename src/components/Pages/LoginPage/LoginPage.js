@@ -3,7 +3,7 @@ import { Button, Form, Input } from "antd";
 import { useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout } from "../../../features/users/userSlice";
+import { login } from "../../../features/users/userSlice";
 
 const LoginPage = () => {
   let navigate = useNavigate();

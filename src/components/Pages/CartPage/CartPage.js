@@ -1,6 +1,7 @@
+import { Button } from "antd";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart } from "../../../features/cart/cartSlice";
+import { removeFromCart, removeAll } from "../../../features/cart/cartSlice";
 import CartItem from "./_CartItem.js";
 
 const CartPage = () => {
@@ -12,6 +13,7 @@ const CartPage = () => {
   });
 
   useEffect(() => {
+    console.log(cartItemList);
     let totalamount = 0,
       totalcost = 0;
 
@@ -26,6 +28,11 @@ const CartPage = () => {
     });
   }, [cartItemList]);
 
+  const onClickRemoveAll = () => {
+    dispatch(removeAll());
+  };
+
+  if (cartItemList.length === 0) return <h1>장바구니에 담은 상품이 없습니다.</h1>;
   return (
     <div className="cartPage">
       <div className="cartPage_container">
@@ -34,6 +41,7 @@ const CartPage = () => {
             <CartItem item={cartItem} />
           ))}
         </div>
+
         <div className="cartPage_section2">
           <div className="total_amount">
             <span className="total_amount_title">총 구매 수량</span>
@@ -43,6 +51,9 @@ const CartPage = () => {
             <span className="total_cost_title">주문 금액</span>
             <span className="total_cost_item">{totalInfo.cost} 원</span>
           </div>
+          <Button className="cart_removeAll" onClick={onClickRemoveAll}>
+            장바구니 비우기
+          </Button>
         </div>
       </div>
     </div>

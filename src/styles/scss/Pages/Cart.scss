@@ -29,7 +29,7 @@
       background-color: #f3f3f3;
       border-radius: 8px;
       padding: 16px;
-      height: 100px;
+      height: 140px;
 
       .total_amount,
       .total_cost {
@@ -52,6 +52,11 @@
 
       .total_cost_item {
         color: $highlight;
+      }
+
+      .cart_removeAll {
+        width: 100%;
+        margin-top: 16px;
       }
     }
   }
