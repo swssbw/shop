@@ -68,7 +68,7 @@ const LandingPage = () => {
       </div>
       <div className="landingPage_bottom">
         {isLoading && <Spin size="large" />}
-        {skip < 100 && <div ref={setTarget} />}
+        {!category && skip < 100 && <div ref={setTarget} />}
       </div>
     </div>
   );

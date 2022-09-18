@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart, removeAll } from "../../../features/cart/cartSlice";
+import { removeAll } from "../../../features/cart/cartSlice";
 import CartItem from "./_CartItem.js";
 
 const CartPage = () => {
@@ -13,7 +13,6 @@ const CartPage = () => {
   });
 
   useEffect(() => {
-    console.log(cartItemList);
     let totalamount = 0,
       totalcost = 0;
 

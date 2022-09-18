@@ -11,10 +11,6 @@ const CartItem = (props) => {
     return (Math.ceil((price * 1300) / 1000) * 1000).toLocaleString();
   };
 
-  useEffect(() => {
-    console.log(item);
-  }, [item]);
-
   const onRemoveClick = (id) => {
     dispatch(removeFromCart(id));
   };
