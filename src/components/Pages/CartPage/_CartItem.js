@@ -25,10 +25,14 @@ const CartItem = (props) => {
         <div className="cartItem_thumbnail">
           <img src={item.product.thumbnail} alt="product thumbnail" width="80px" height="80px" />
         </div>
-        <div className="cartItem_title">{item.product.title}</div>
-        <div className="cartItem_count">수량 : {item.count} 개</div>
-        <div className="cartItem_price">{getOriginalPriceKR(item.product.price)} 원</div>
-        <Button onClick={() => onRemoveClick(item.product.id)}>삭제</Button>
+        <div>
+          <div className="cartItem_title">{item.product.title}</div>
+          <div className="cartItem_count">수량 : {item.count} 개</div>
+          <div className="cartItem_price">{getOriginalPriceKR(item.product.price)} 원</div>
+        </div>
+        <Button onClick={() => onRemoveClick(item.product.id)} className="cartItem_remove">
+          삭제
+        </Button>
       </div>
     </div>
   );
