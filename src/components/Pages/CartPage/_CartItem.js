@@ -15,7 +15,7 @@ const CartItem = (props) => {
     <div className="cartItem">
       <div className="cartItem_container">
         <div className="cartItem_thumbnail">
-          <img src={item.product.thumbnail} alt="product thumbnail" width="150px" height="150px" />
+          <img src={item.product.thumbnail} alt="product thumbnail" width="80px" height="80px" />
         </div>
         <div className="cartItem_title">{item.product.title}</div>
         <div className="cartItem_count">수량 : {item.count} 개</div>

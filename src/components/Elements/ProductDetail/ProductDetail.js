@@ -23,7 +23,7 @@ const ProductDetail = () => {
 
   const onClickCart = () => {
     dispatch(addToCart({ product, count }));
-    // alert("장바구니에 추가되었습니다.");
+    alert("장바구니에 추가되었습니다.");
   };
 
   const onCounterClick = (value) => setCount(value);
