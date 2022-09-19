@@ -11,7 +11,7 @@ import SearchPage from "./components/Pages/SearchPage/SearchPage";
 
 function App() {
   return (
-    <BrowserRouter basename="/shop/">
+    <BrowserRouter basename="/shop">
       <div className="wrapper">
         <Navbar />
         <div className="section">

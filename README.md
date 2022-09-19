@@ -4,7 +4,7 @@ redux-toolkit 에 익숙해 지기 위해 만들어본 프로젝트
 기능 구현에 중심을 두고자 최대한 디자인 컴포넌트는 Ant design을 활용하였습니다.
 모든 상품 관련 데이터는 https://dummyjson.com/ 에서 가져와 사용하였습니다.
 
-> [데모 링크 바로가기](https://swssbw.github.io/shop/index.html)
+> [데모 링크 바로가기](https://swssbw.github.io/shop/)
 
 ### **사용기술**
 
