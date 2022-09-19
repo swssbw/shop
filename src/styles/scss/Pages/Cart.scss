@@ -9,7 +9,7 @@
     grid-template-columns: 1fr 3fr 100px;
 
     .cartItem_thumbnail {
-      @include mobile {
+      @include undermobile {
         margin-right: 20px;
       }
     }
