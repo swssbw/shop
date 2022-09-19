@@ -28,6 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
+    "postbuild": "shx cp build/index.html build/404.html",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
@@ -49,7 +50,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "shx": "^0.3.4"
   },
   "homepage": "http://swssbw.github.io/shop"
 }
