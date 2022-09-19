@@ -26,6 +26,16 @@
     .productDetail_section1 {
       display: flex;
       justify-content: center;
+
+      > img {
+        @include undermobile {
+          width: 300px;
+        }
+
+        @include mobile {
+          width: 300px;
+        }
+      }
     }
 
     .productDetail_section2 {

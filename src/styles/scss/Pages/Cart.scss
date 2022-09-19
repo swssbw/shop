@@ -8,6 +8,12 @@
     align-items: center;
     grid-template-columns: 1fr 3fr 100px;
 
+    .cartItem_thumbnail {
+      @include mobile {
+        margin-right: 20px;
+      }
+    }
+
     > div {
       font-size: 18px;
 
