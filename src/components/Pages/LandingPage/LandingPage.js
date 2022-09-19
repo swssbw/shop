@@ -31,12 +31,9 @@ const LandingPage = () => {
 
   useEffect(() => {
     const currentObserver = observer.current;
+
     if (target) {
       currentObserver.observe(target);
-
-      if (category) {
-        currentObserver.unobserve(target);
-      }
     }
 
     return () => {
@@ -48,7 +45,7 @@ const LandingPage = () => {
 
   // 스크롤 바닥 감지시 상품 로딩
   useEffect(() => {
-    if (skip < 100) dispatch(getProductsByScroll(skip));
+    if (skip < 100 && !category) dispatch(getProductsByScroll(skip));
   }, [skip, dispatch]);
 
   // 카테고리별 상품 로딩
