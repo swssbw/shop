@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import storageSession from "redux-persist/lib/storage/session";
 import logger from "redux-logger";
 import userSlice from "./users/userSlice";
 import productsSlice from "./products/productsSlice";
@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
 
 const persistConfig = {
   key: "sampleshop",
-  storage,
+  storage: storageSession,
   blacklist: ["products"],
 };
 
